@@ -1,26 +1,33 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestEightBall {
 
     EightBall eightBall;
+    ArrayList<String> answers;
 
     @Before
     public void before(){
-        eightBall = new EightBall();
+        answers = new ArrayList<>();
+        answers.add("Definite yes");
+        answers.add("Hell no");
+        answers.add("Probably maybe");
+        eightBall = new EightBall(answers);
     }
 
     @Test
     public void hasLength(){
-        assertEquals(0, eightBall.getAnswerCount());
+        assertEquals(3, eightBall.getAnswerCount());
     }
 
     @Test
     public void canAddAnswer(){
-        eightBall.addAnswer("Definite yes");
-        assertEquals(1, eightBall.getAnswerCount());
+        eightBall.addAnswer("Drink!");
+        assertEquals(4, eightBall.getAnswerCount());
     }
 
     @Test
